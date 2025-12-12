@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <meta name="description" content="Personal Portfolio Website showcasing my work and skills.">
+    <!-- Favicon (Placeholder) -->
+    <link rel="icon" type="image/jpeg" href="images/profile.jpg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Govind</a>
+
+            <ul class="nav-links">
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="pdfs/Resume.pdf" class="btn-resume" target="_blank" rel="noopener noreferrer">Resume</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="#about" class="mobile-link">About Me</a>
+        <a href="#experience" class="mobile-link">Experience</a>
+        <a href="#skills" class="mobile-link">Skills</a>
+        <a href="#projects" class="mobile-link">Projects</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+        <a href="pdfs/Resume.pdf" class="mobile-resume" target="_blank">Resume</a>
+    </div>
+
+    <!-- Hero / About Section -->
+    <header id="about" class="hero">
+        <div class="container hero-content">
+            <div class="text-content">
+                <span class="greeting">Hello, I'm</span>
+                <h1>Govind</h1>
+                <p class="bio">
+                    I am a Computer Science and Engineering student at PES University, Bangalore, and an aspiring
+                    Machine Learning engineer.
+                </p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                </div>
+            </div>
+            <div class="image-content">
+                <div class="profile-img-wrapper">
+                    <img src="images/profile.jpg" alt="My Profile Photo" class="profile-img">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2>Experience</h2>
+                <p>My professional journey and education.</p>
+            </div>
+
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">June 2025 - July 2025</div>
+                    <div class="timeline-content">
+                        <h3>Research Intern</h3>
+                        <h4>Center for Cloud Computing and Big Data, PES University</h4>
+                        <p>Worked on a multilingual hate speech detection model using LLMs and deep learning.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2023 - 2027</div>
+                    <div class="timeline-content">
+                        <h3>B.Tech in Computer Science and Engineering</h3>
+                        <h4>PES University, Bangalore</h4>
+                        <p>Pursuing Bachelor of Technology with a focus on core computer science subjects and machine
+                            learning.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2>My Skills</h2>
+                <p>Technologies and tools I work with.</p>
+            </div>
+
+            <div class="skills-grid">
+                <!-- Programming Languages -->
+                <div class="skills-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <div class="skill-tag">Python</div>
+                        <div class="skill-tag">C</div>
+                        <div class="skill-tag">JavaScript</div>
+                    </div>
+                </div>
+
+                <!-- Data Analysis -->
+                <div class="skills-category">
+                    <h3>Data Analysis</h3>
+                    <div class="skill-tags">
+                        <div class="skill-tag">NumPy</div>
+                        <div class="skill-tag">Pandas</div>
+                        <div class="skill-tag">Matplotlib</div>
+                        <div class="skill-tag">Seaborn</div>
+                    </div>
+                </div>
+
+                <!-- Web Tech -->
+                <div class="skills-category">
+                    <h3>Web Technologies</h3>
+                    <div class="skill-tags">
+                        <div class="skill-tag">HTML</div>
+                        <div class="skill-tag">CSS</div>
+                        <div class="skill-tag">JavaScript</div>
+                        <div class="skill-tag">MERN Stack</div>
+                    </div>
+                </div>
+
+                <!-- Databases -->
+                <div class="skills-category">
+                    <h3>Databases</h3>
+                    <div class="skill-tags">
+                        <div class="skill-tag">MySQL</div>
+                        <div class="skill-tag">PostgreSQL</div>
+                        <div class="skill-tag">Neo4j</div>
+                        <div class="skill-tag">Redis</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2>My Projects</h2>
+                <p>A selection of my recent work.</p>
+            </div>
+
+            <div class="project-grid">
+                <!-- Project Card 1 -->
+                <article class="project-card">
+                    <div class="card-image">
+                        <img src="images/finsecuredb.png" alt="FinSecureDB">
+                    </div>
+                    <div class="card-content">
+                        <h3>FinSecureDB</h3>
+                        <p>A database management system for modern banking, architected to manage and secure core
+                            financial data.</p>
+                        <div class="tags">
+                            <span>SQL</span>
+                            <span>Python</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/Govind2k5/FinSecureDB---A-Database-Management-System-for-Modern-Banking-"
+                                target="_blank">Source Code</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project Card 2 -->
+                <article class="project-card">
+                    <div class="card-image">
+                        <img src="images/ticket_prediction.png" alt="Airline Ticket Price Prediction">
+                    </div>
+                    <div class="card-content">
+                        <h3>Airline Ticket Price Prediction</h3>
+                        <p>A machine learning model to predict flight prices with high accuracy using Random Forest and
+                            automated preprocessing.</p>
+                        <div class="tags">
+                            <span>Python</span>
+                            <span>Machine Learning</span>
+                            <span>Scikit-Learn</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/Govind2k5/Prediction-of-Online-Ticket-Price"
+                                target="_blank">Source Code</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project Card 3 -->
+                <article class="project-card">
+                    <div class="card-image">
+                        <img src="images/ipl_analysis.png" alt="IPL Data Analysis">
+                    </div>
+                    <div class="card-content">
+                        <h3>IPL Data Analysis</h3>
+                        <p>Comprehensive analysis of IPL match data from 2008 to 2024, visualizing key trends and player
+                            statistics.</p>
+                        <div class="tags">
+                            <span>Python</span>
+                            <span>Data Analysis</span>
+                            <span>Visualization</span>
+                        </div>
+                        <div class="card-links">
+                            <a href="https://github.com/Govind2k5/IPL-Data-analysis-" target="_blank">Source Code</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <p>Have a project in mind or just want to say hi? Connect with me!</p>
+            </div>
+
+            <div class="contact-links">
+                <a href="mailto:govindaraj2k5@gmail.com" class="contact-item">
+                    <div class="icon-box">✉️</div>
+                    <span>govindaraj2k5@gmail.com</span>
+                </a>
+                <a href="https://www.linkedin.com/in/govind-raj-00703b247/" target="_blank" class="contact-item">
+                    <div class="icon-box">🔗</div>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/Govind2k5" target="_blank" class="contact-item">
+                    <div class="icon-box">💻</div>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.instagram.com/govind2k5/" target="_blank" class="contact-item">
+                    <div class="icon-box">📸</div>
+                    <span>Instagram</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2024 Govind. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

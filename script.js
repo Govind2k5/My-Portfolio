@@ -1,84 +1,91 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Mobile Menu Toggle
-    const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
-    const mobileResume = document.querySelector('.mobile-resume');
+(function () {
+    function init() {
+        var navbar = document.getElementById('navbar');
+        var hamburger = document.getElementById('hamburger');
+        var mobileMenu = document.getElementById('mobileMenu');
 
-    hamburger.addEventListener('click', () => {
-        mobileMenu.classList.toggle('active');
-        // Simple hamburger animation toggle
-        const spans = hamburger.querySelectorAll('span');
-        if (mobileMenu.classList.contains('active')) {
-            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-            spans[1].style.opacity = '0';
-            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-        } else {
-            spans.forEach(span => span.style.transform = 'none');
-            spans[1].style.opacity = '1';
+        // Navbar state on scroll
+        function onScroll() { navbar.classList.toggle('scrolled', window.scrollY > 24); }
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        // Mobile menu
+        function toggleMenu(open) {
+            var isOpen = (typeof open === 'boolean') ? open : !mobileMenu.classList.contains('active');
+            mobileMenu.classList.toggle('active', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+            var s = hamburger.querySelectorAll('span');
+            if (isOpen) {
+                s[0].style.transform = 'translateY(8px) rotate(45deg)';
+                s[1].style.opacity = '0';
+                s[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+            } else {
+                for (var i = 0; i < s.length; i++) { s[i].style.transform = 'none'; s[i].style.opacity = '1'; }
+            }
         }
-    });
-
-    // Close mobile menu when a link is clicked
-    [...mobileLinks, mobileResume].forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            const spans = hamburger.querySelectorAll('span');
-            spans.forEach(span => span.style.transform = 'none');
-            spans[1].style.opacity = '1';
+        hamburger.addEventListener('click', function () { toggleMenu(); });
+        hamburger.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); }
         });
-    });
+        mobileMenu.querySelectorAll('a').forEach(function (a) {
+            a.addEventListener('click', function () { toggleMenu(false); });
+        });
 
-    // Smooth Scroll for Anchor Links (Optional explicit handling)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                // Offset for fixed header
-                const headerOffset = 80;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        // Smooth scroll for in-page anchors
+        document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+            anchor.addEventListener('click', function (e) {
+                var id = this.getAttribute('href');
+                if (id === '#' || id.length < 2) return;
+                var target = document.querySelector(id);
+                if (!target) return;
+                e.preventDefault();
+                var y = target.getBoundingClientRect().top + window.pageYOffset - 80;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            });
+        });
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
+        // Scroll reveal
+        var reveals = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            // Light stagger inside shared containers
+            document.querySelectorAll('.proj-grid, .skills-list, .exp-list, .contact-links').forEach(function (group) {
+                var kids = group.children, n = 0;
+                for (var i = 0; i < kids.length; i++) {
+                    if (kids[i].classList.contains('reveal')) kids[i].dataset.delay = (n++) * 60;
+                }
+            });
+
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.style.transitionDelay = (entry.target.dataset.delay || 0) + 'ms';
+                        entry.target.classList.add('visible');
+                        io.unobserve(entry.target);
+                    }
                 });
-            }
-        });
-    });
+            }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-    // Fade-in animation on scroll using Intersection Observer
-    const observerOptions = {
-        threshold: 0.1
-    };
+            var vh = window.innerHeight || document.documentElement.clientHeight;
+            reveals.forEach(function (el) {
+                // Reveal anything already on-screen at load immediately; observe the rest.
+                if (el.getBoundingClientRect().top < vh) {
+                    el.classList.add('visible');
+                } else {
+                    io.observe(el);
+                }
+            });
+        } else {
+            reveals.forEach(function (el) { el.classList.add('visible'); });
+        }
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
+        window.__revealReady = true;
+    }
 
-    // Add fade-in class to elements we want to animate
-    // For simplicity, we just add a simple CSS class dynamically if desired, 
-    // but for now, the base implementation is clean without complex JS animations.
-    // If you want to add reveal animations, you can uncomment below:
-    
-    /*
-    const fadeElements = document.querySelectorAll('.project-card, .contact-item, .section-header');
-    fadeElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-        observer.observe(el);
-    });
-    
-    // Add this to your logic to trigger the animation
-    // When intersecting: el.style.opacity = '1'; el.style.transform = 'translateY(0)';
-    */
-});
+    // Run now if the DOM is already parsed, otherwise wait. Guards against the
+    // script executing after DOMContentLoaded has already fired.
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();

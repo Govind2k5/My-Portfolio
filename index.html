@@ -4,279 +4,397 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <meta name="description" content="Personal Portfolio Website showcasing my work and skills.">
-    <!-- Favicon (Placeholder) -->
+    <title>Govind, Computer Science @ PES University</title>
+    <meta name="description"
+        content="Govind, Computer Science and Engineering student at PES University, Bangalore. GTM business systems, AI agents, automations, and machine learning.">
     <link rel="icon" type="image/jpeg" href="images/profile.jpg">
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <script>
+        // Enable reveal animations only when JS runs; hide before first paint.
+        document.documentElement.classList.add('js-anim');
+        // Failsafe: if the main script never initialised, show everything anyway.
+        window.addEventListener('load', function () {
+            window.setTimeout(function () {
+                if (!window.__revealReady) {
+                    var els = document.querySelectorAll('.reveal');
+                    for (var i = 0; i < els.length; i++) els[i].classList.add('visible');
+                }
+            }, 1200);
+        });
+    </script>
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">Govind</a>
-
+    <!-- Nav -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#about" class="logo">Govind<span>.</span></a>
             <ul class="nav-links">
-                <li><a href="#about">About Me</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="pdfs/Resume.pdf" class="btn-resume" target="_blank" rel="noopener noreferrer">Resume</a>
-                </li>
+                <li><a href="pdfs/Resume.pdf" class="nav-cta" target="_blank" rel="noopener">Résumé</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+                <span></span><span></span><span></span>
             </div>
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu">
-        <a href="#about" class="mobile-link">About Me</a>
-        <a href="#experience" class="mobile-link">Experience</a>
-        <a href="#skills" class="mobile-link">Skills</a>
-        <a href="#projects" class="mobile-link">Projects</a>
-        <a href="#contact" class="mobile-link">Contact</a>
-        <a href="pdfs/Resume.pdf" class="mobile-resume" target="_blank">Resume</a>
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about"><span class="m-idx">01</span> About</a>
+        <a href="#experience"><span class="m-idx">02</span> Experience</a>
+        <a href="#skills"><span class="m-idx">03</span> Skills</a>
+        <a href="#projects"><span class="m-idx">04</span> Projects</a>
+        <a href="#contact"><span class="m-idx">05</span> Contact</a>
+        <a href="pdfs/Resume.pdf" target="_blank" rel="noopener"><span class="m-idx">↗</span> Résumé</a>
     </div>
 
-    <!-- Hero / About Section -->
-    <header id="about" class="hero">
-        <div class="container hero-content">
-            <div class="text-content">
-                <span class="greeting">Hello, I'm</span>
-                <h1>Govind</h1>
+    <!-- Hero -->
+    <header class="hero" id="about">
+        <div class="container hero-grid">
+            <div class="reveal">
+                <div class="hero-eyebrow"><span class="dot"></span> Bangalore, India</div>
+                <h1>Govind<em>.</em></h1>
+                <p class="role">GTM &middot; AI Agents &amp; Automation &middot; Machine Learning</p>
                 <p class="bio">
-                    I am a Computer Science and Engineering student at PES University, Bangalore, and an aspiring
-                    Machine Learning engineer.
+                    A Computer Science and Engineering student at PES University, Bangalore. I like turning ideas into
+                    things that actually run: AI agents and automations, full-stack apps, and machine learning models.
                 </p>
-                <div class="hero-btns">
-                    <a href="#projects" class="btn btn-primary">View Projects</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">
+                        View work
+                        <svg class="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                    </a>
+                    <a href="pdfs/Resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener">Résumé</a>
+                </div>
+                <div class="hero-socials">
+                    <a href="https://github.com/Govind2k5" class="tlink" target="_blank" rel="noopener">GitHub
+                        <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                    <a href="https://www.linkedin.com/in/govind-raj-00703b247/" class="tlink" target="_blank" rel="noopener">LinkedIn
+                        <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                    <a href="mailto:govindaraj2k5@gmail.com" class="tlink">Email
+                        <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                    <a href="https://www.instagram.com/govind2k5/" class="tlink" target="_blank" rel="noopener">Instagram
+                        <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
                 </div>
             </div>
-            <div class="image-content">
-                <div class="profile-img-wrapper">
-                    <img src="images/profile.jpg" alt="My Profile Photo" class="profile-img">
+            <div class="portrait reveal">
+                <div class="portrait-frame">
+                    <img src="images/profile.jpg" alt="Govind">
+                </div>
+                <div class="portrait-cap">
+                    <span>Govind</span>
+                    <span>CSE '27</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
+    <!-- About / Experience -->
+    <section class="section" id="experience">
         <div class="container">
-            <div class="section-header">
+            <div class="sec-head reveal">
+                <span class="idx">(01)</span>
                 <h2>Experience</h2>
-                <p>My professional journey and education.</p>
+                <span class="rule"></span>
             </div>
 
-            <div class="timeline">
-                <!-- Timeline Item 1 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">June 2025 - July 2025</div>
-                    <div class="timeline-content">
-                        <h3>Research Intern</h3>
-                        <h4>Center for Cloud Computing and Big Data, PES University</h4>
-                        <p>Worked on a multilingual hate speech detection model using LLMs and deep learning.</p>
+            <div class="exp-list">
+                <div class="exp-item reveal">
+                    <div class="exp-when">Jun 2026 &rarr; Aug 2026</div>
+                    <div>
+                        <span class="exp-tag">Internship</span>
+                        <h3 class="exp-role">GTM Intern</h3>
+                        <p class="exp-org">
+                            <a href="https://www.g2.com" target="_blank" rel="noopener">G2</a>, Bangalore
+                        </p>
+                        <p class="exp-desc">
+                            Building AI agents and automation workflows across go-to-market systems. Designing
+                            LLM-driven agents, wiring them into existing tools, and turning manual, repetitive
+                            processes into reliable automated pipelines that keep GTM data clean and moving.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Timeline Item 2 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">2023 - 2027</div>
-                    <div class="timeline-content">
-                        <h3>B.Tech in Computer Science and Engineering</h3>
-                        <h4>PES University, Bangalore</h4>
-                        <p>Pursuing Bachelor of Technology with a focus on core computer science subjects and machine
-                            learning.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2>My Skills</h2>
-                <p>Technologies and tools I work with.</p>
-            </div>
-
-            <div class="skills-grid">
-                <!-- Programming Languages -->
-                <div class="skills-category">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-tags">
-                        <div class="skill-tag">Python</div>
-                        <div class="skill-tag">C</div>
-                        <div class="skill-tag">JavaScript</div>
+                <div class="exp-item reveal">
+                    <div class="exp-when">Jun 2025 &rarr; Jul 2025</div>
+                    <div>
+                        <span class="exp-tag">Research</span>
+                        <h3 class="exp-role">Research Intern, Cloud Computing &amp; Big Data</h3>
+                        <p class="exp-org">Center for Data Sciences &amp; Applied ML (CDSAML), PES University</p>
+                        <p class="exp-desc">
+                            Worked under Dr. Shylaja S. S. on multilingual hate-speech detection, building and
+                            benchmarking both deep-learning and LLM-based models to flag harmful content on social
+                            platforms.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Data Analysis -->
-                <div class="skills-category">
-                    <h3>Data Analysis</h3>
-                    <div class="skill-tags">
-                        <div class="skill-tag">NumPy</div>
-                        <div class="skill-tag">Pandas</div>
-                        <div class="skill-tag">Matplotlib</div>
-                        <div class="skill-tag">Seaborn</div>
-                    </div>
-                </div>
-
-                <!-- Web Tech -->
-                <div class="skills-category">
-                    <h3>Web Technologies</h3>
-                    <div class="skill-tags">
-                        <div class="skill-tag">HTML</div>
-                        <div class="skill-tag">CSS</div>
-                        <div class="skill-tag">JavaScript</div>
-                        <div class="skill-tag">MERN Stack</div>
-                    </div>
-                </div>
-
-                <!-- Databases -->
-                <div class="skills-category">
-                    <h3>Databases</h3>
-                    <div class="skill-tags">
-                        <div class="skill-tag">MySQL</div>
-                        <div class="skill-tag">PostgreSQL</div>
-                        <div class="skill-tag">Neo4j</div>
-                        <div class="skill-tag">Redis</div>
+                <div class="exp-item reveal">
+                    <div class="exp-when">2023 &rarr; 2027</div>
+                    <div>
+                        <span class="exp-tag">Education</span>
+                        <h3 class="exp-role">B.Tech, Computer Science and Engineering</h3>
+                        <p class="exp-org">PES University, Bangalore &middot; CGPA 8.5</p>
+                        <p class="exp-desc">
+                            CNR Rao Merit Scholarship and three-time Distinction Award. Coursework across data
+                            structures, operating systems, computer networks, DBMS, machine learning, and cloud
+                            computing.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <!-- Skills -->
+    <section class="section" id="skills">
         <div class="container">
-            <div class="section-header">
-                <h2>My Projects</h2>
-                <p>A selection of my recent work.</p>
+            <div class="sec-head reveal">
+                <span class="idx">(02)</span>
+                <h2>Skills</h2>
+                <span class="rule"></span>
             </div>
 
-            <div class="project-grid">
-                <!-- Project Card 1 -->
-                <article class="project-card">
-                    <div class="card-image">
-                        <img src="images/finsecuredb.png" alt="FinSecureDB">
+            <div class="skills-list">
+                <div class="skill-row reveal">
+                    <div class="skill-cat">Languages</div>
+                    <div class="skill-tags">
+                        <span>Python</span><span>Java</span><span>JavaScript</span><span>SQL</span><span>C</span><span>HTML/CSS</span>
                     </div>
-                    <div class="card-content">
-                        <h3>FinSecureDB</h3>
-                        <p>A database management system for modern banking, architected to manage and secure core
-                            financial data.</p>
-                        <div class="tags">
-                            <span>SQL</span>
-                            <span>Python</span>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://github.com/Govind2k5/FinSecureDB---A-Database-Management-System-for-Modern-Banking-"
-                                target="_blank">Source Code</a>
-                        </div>
+                </div>
+                <div class="skill-row reveal">
+                    <div class="skill-cat">AI &amp; LLMs</div>
+                    <div class="skill-tags">
+                        <span>LLMs</span><span>LangChain</span><span>LangGraph</span><span>Claude</span><span>PyTorch</span><span>Scikit-learn</span>
+                    </div>
+                </div>
+                <div class="skill-row reveal">
+                    <div class="skill-cat">Frameworks &amp; Web</div>
+                    <div class="skill-tags">
+                        <span>React</span><span>Node.js</span><span>Flask</span><span>Streamlit</span>
+                    </div>
+                </div>
+                <div class="skill-row reveal">
+                    <div class="skill-cat">Data &amp; Databases</div>
+                    <div class="skill-tags">
+                        <span>Pandas</span><span>NumPy</span><span>Snowflake</span><span>MySQL</span><span>PostgreSQL</span><span>Neo4j</span><span>Redis</span>
+                    </div>
+                </div>
+                <div class="skill-row reveal">
+                    <div class="skill-cat">Automation &amp; GTM</div>
+                    <div class="skill-tags">
+                        <span>n8n</span><span>Clay</span><span>Salesforce</span>
+                    </div>
+                </div>
+                <div class="skill-row reveal">
+                    <div class="skill-cat">Tools &amp; Workflow</div>
+                    <div class="skill-tags">
+                        <span>Git</span><span>Docker</span><span>Linux (Bash/Shell)</span><span>Jira</span><span>Agile</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="sec-head reveal">
+                <span class="idx">(03)</span>
+                <h2>Projects</h2>
+                <span class="rule"></span>
+            </div>
+
+            <div class="proj-grid">
+                <!-- 01 Trivia Rooms -->
+                <article class="proj-card reveal">
+                    <div class="proj-top">
+                        <span class="proj-num">01</span>
+                        <span class="proj-live">Live</span>
+                    </div>
+                    <h3>Trivia Rooms</h3>
+                    <p>Real-time multiplayer trivia. A host runs live rounds and players join with a room code to submit
+                        free-text answers. Built on WebSockets with a Redis pub/sub layer so multiple servers stay in
+                        sync, backed by Postgres for questions and scores. Every player sees each question at the same
+                        instant.</p>
+                    <div class="proj-tags">
+                        <span>FastAPI</span><span>Socket.IO</span><span>Redis</span><span>PostgreSQL</span><span>JS</span>
+                    </div>
+                    <div class="proj-links">
+                        <a href="https://trivia-rooms.vercel.app/" target="_blank" rel="noopener">Live Demo
+                            <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                        <a href="https://github.com/Govind2k5/trivia-rooms" target="_blank" rel="noopener">Source
+                            <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
                     </div>
                 </article>
 
-                <!-- Project Card 2 -->
-                <article class="project-card">
-                    <div class="card-image">
-                        <img src="images/ticket_prediction.png" alt="Airline Ticket Price Prediction">
+                <!-- 02 JARVISQL -->
+                <article class="proj-card reveal">
+                    <div class="proj-top">
+                        <span class="proj-num">02</span>
                     </div>
-                    <div class="card-content">
-                        <h3>Airline Ticket Price Prediction</h3>
-                        <p>A machine learning model to predict flight prices with high accuracy using Random Forest and
-                            automated preprocessing.</p>
-                        <div class="tags">
-                            <span>Python</span>
-                            <span>Machine Learning</span>
-                            <span>Scikit-Learn</span>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://github.com/Govind2k5/Prediction-of-Online-Ticket-Price"
-                                target="_blank">Source Code</a>
-                        </div>
+                    <h3>J.A.R.V.I.S.QL</h3>
+                    <p>Ask your database questions in plain English. Uses Llama 3 (via Groq) to translate natural
+                        language into SQL, with a read-only safety layer that blocks destructive queries and hides
+                        system tables. Wrapped in a simple Streamlit interface.</p>
+                    <div class="proj-tags">
+                        <span>Python</span><span>Llama 3</span><span>Streamlit</span><span>MySQL</span>
+                    </div>
+                    <div class="proj-links">
+                        <a href="https://github.com/Govind2k5/J.A.R.V.I.S.QL" target="_blank" rel="noopener">Source
+                            <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
                     </div>
                 </article>
 
-                <!-- Project Card 3 -->
-                <article class="project-card">
-                    <div class="card-image">
-                        <img src="images/ipl_analysis.png" alt="IPL Data Analysis">
+                <!-- 03 MedSkillDB -->
+                <article class="proj-card reveal">
+                    <div class="proj-top">
+                        <span class="proj-num">03</span>
                     </div>
-                    <div class="card-content">
-                        <h3>IPL Data Analysis</h3>
-                        <p>Comprehensive analysis of IPL match data from 2008 to 2024, visualizing key trends and player
-                            statistics.</p>
-                        <div class="tags">
-                            <span>Python</span>
-                            <span>Data Analysis</span>
-                            <span>Visualization</span>
-                        </div>
-                        <div class="card-links">
-                            <a href="https://github.com/Govind2k5/IPL-Data-analysis-" target="_blank">Source Code</a>
-                        </div>
+                    <h3>MedSkillDB</h3>
+                    <p>A full-stack web app for tracking employee profiles and their technical competencies, with the
+                        ability to add, remove, or update skills on the fly. The backend is built around RESTful APIs
+                        over a relational database, with automated reporting on top.</p>
+                    <div class="proj-tags">
+                        <span>Flask</span><span>MySQL</span><span>JavaScript</span><span>HTML/CSS</span>
+                    </div>
+                </article>
+
+                <!-- 04 Bitcoin Price Prediction -->
+                <article class="proj-card reveal">
+                    <div class="proj-top">
+                        <span class="proj-num">04</span>
+                    </div>
+                    <h3>Bitcoin Price Prediction</h3>
+                    <p>An LSTM neural network in PyTorch that forecasts Bitcoin prices from 60 days of historical OHLCV
+                        data, converging to a training loss under 0.001. A Streamlit app generates 30-day forecasts and
+                        interactive trend charts.</p>
+                    <div class="proj-tags">
+                        <span>PyTorch</span><span>LSTM</span><span>Streamlit</span><span>Scikit-learn</span>
+                    </div>
+                    <div class="proj-links">
+                        <a href="https://github.com/Govind2k5/Bitcoin-Price-Prediction-LSTM" target="_blank" rel="noopener">Source
+                            <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                    </div>
+                </article>
+
+                <!-- 05 FinSecureDB -->
+                <article class="proj-card reveal">
+                    <div class="proj-top">
+                        <span class="proj-num">05</span>
+                    </div>
+                    <h3>FinSecureDB</h3>
+                    <p>A relational database for modern banking covering customers, loans, branches, and transaction
+                        logs. SQL triggers and stored procedures automate interest calculations and real-time balance
+                        updates, with a Python front-end handling CRUD for administrators.</p>
+                    <div class="proj-tags">
+                        <span>MySQL</span><span>Python</span><span>Stored Procedures</span>
+                    </div>
+                    <div class="proj-links">
+                        <a href="https://github.com/Govind2k5/FinSecureDB---A-Database-Management-System-for-Modern-Banking-" target="_blank" rel="noopener">Source
+                            <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                    </div>
+                </article>
+
+                <!-- 06 Airline Ticket Price Prediction -->
+                <article class="proj-card reveal">
+                    <div class="proj-top">
+                        <span class="proj-num">06</span>
+                    </div>
+                    <h3>Airline Ticket Price Prediction</h3>
+                    <p>A Random Forest regressor predicting dynamic flight prices with an R&sup2; of 0.985 (MAE about
+                        &#8377;1,086). A ColumnTransformer pipeline handles one-hot encoding and scaling, plus
+                        hyperparameter tuning to cut overfitting.</p>
+                    <div class="proj-tags">
+                        <span>Python</span><span>Scikit-learn</span><span>Random Forest</span>
+                    </div>
+                    <div class="proj-links">
+                        <a href="https://github.com/Govind2k5/Prediction-of-Online-Ticket-Price" target="_blank" rel="noopener">Source
+                            <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+                    </div>
+                </article>
+
+                <!-- 07 IPL Data Analysis -->
+                <article class="proj-card reveal">
+                    <div class="proj-top">
+                        <span class="proj-num">07</span>
+                    </div>
+                    <h3>IPL Data Analysis</h3>
+                    <p>Exploratory analysis over 16 seasons of IPL matches (2008 to 2024), digging into toss decisions,
+                        venue advantages, and team consistency. Correlations surface through Seaborn heatmaps and
+                        charts to pull out clear, actionable insights.</p>
+                    <div class="proj-tags">
+                        <span>Python</span><span>Pandas</span><span>Matplotlib</span><span>Seaborn</span>
+                    </div>
+                    <div class="proj-links">
+                        <a href="https://github.com/Govind2k5/IPL-Data-analysis-" target="_blank" rel="noopener">Source
+                            <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
                     </div>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <!-- Contact -->
+    <section class="section" id="contact">
         <div class="container">
-            <div class="section-header">
-                <h2>Get in Touch</h2>
-                <p>Have a project in mind or just want to say hi? Connect with me!</p>
+            <div class="sec-head reveal">
+                <span class="idx">(04)</span>
+                <h2>Contact</h2>
+                <span class="rule"></span>
             </div>
 
-            <div class="contact-links">
-                <a href="mailto:govindaraj2k5@gmail.com" class="contact-item">
-                    <div class="icon-box">✉️</div>
-                    <span>govindaraj2k5@gmail.com</span>
-                </a>
-                <a href="https://www.linkedin.com/in/govind-raj-00703b247/" target="_blank" class="contact-item">
-                    <div class="icon-box">🔗</div>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="https://github.com/Govind2k5" target="_blank" class="contact-item">
-                    <div class="icon-box">💻</div>
-                    <span>GitHub</span>
-                </a>
-                <a href="https://www.instagram.com/govind2k5/" target="_blank" class="contact-item">
-                    <div class="icon-box">📸</div>
-                    <span>Instagram</span>
-                </a>
+            <div class="contact-wrap">
+                <div class="reveal">
+                    <p class="contact-lead">Let's build <em>something</em>.</p>
+                    <p class="contact-sub">Open to internships, collaborations, or a good conversation. The fastest way
+                        to reach me is email.</p>
+                </div>
+                <div class="contact-links reveal">
+                    <a href="mailto:govindaraj2k5@gmail.com">
+                        <span class="who">Email</span>
+                        <span class="who"><span class="handle">govindaraj2k5@gmail.com</span>
+                            <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/govind-raj-00703b247/" target="_blank" rel="noopener">
+                        <span class="who">LinkedIn</span>
+                        <span class="who"><span class="handle">govind-raj</span>
+                            <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+                    </a>
+                    <a href="https://github.com/Govind2k5" target="_blank" rel="noopener">
+                        <span class="who">GitHub</span>
+                        <span class="who"><span class="handle">@Govind2k5</span>
+                            <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+                    </a>
+                    <a href="https://www.instagram.com/govind2k5/" target="_blank" rel="noopener">
+                        <span class="who">Instagram</span>
+                        <span class="who"><span class="handle">@govind2k5</span>
+                            <svg class="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container footer-content">
-            <p>&copy; 2024 Govind. All rights reserved.</p>
-            <div class="footer-socials">
-                <a href="#">LinkedIn</a>
-                <a href="#">GitHub</a>
-                <a href="#">Instagram</a>
-            </div>
+        <div class="container footer-inner">
+            <span>&copy; 2026 Govind</span>
+            <a href="#about" class="to-top">Back to top
+                <svg class="arrow" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
         </div>
     </footer>
 
